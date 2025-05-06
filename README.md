@@ -1,6 +1,7 @@
-# ExtractComponentPropTypes Webpack Plugin
+# ReactPropType Extractor Webpack Plugin
 
-[![npm version](https://badge.fury.io/js/extract-component-proptypes-webpack-plugin.svg)](https://www.npmjs.com/package/@vymo/reactprops-type-extractor)
+[![npm version](https://badge.fury.io/js/@vymo%2Freactprops-type-extractor.svg)](https://www.npmjs.com/package/@vymo/reactprops-type-extractor)
+[![Build Status](https://github.com/vymo/reactprops-type-extractor/actions/workflows/build.yml/badge.svg)](https://github.com/vymo/reactprops-type-extractor/actions)
 
 A webpack plugin that extracts TypeScript component prop types at build time. This plugin analyzes your React components and generates a structured representation of their prop types, which can be useful for documentation, runtime type checking, or component validation.
 
@@ -21,7 +22,7 @@ A webpack plugin that extracts TypeScript component prop types at build time. Th
 ## Installation
 
 ```bash
-npm install --save-dev extract-component-proptypes-webpack-plugin
+npm install --save-dev @vymo/reactprops-type-extractor
 ```
 
 ## Usage
@@ -29,7 +30,7 @@ npm install --save-dev extract-component-proptypes-webpack-plugin
 In your webpack configuration:
 
 ```javascript
-const ExtractComponentTypesPlugin = require("./config/webpack/plugins/extractComponentPropTypes");
+const ExtractComponentTypesPlugin = require("@vymo/reactprops-type-extractor");
 
 module.exports = {
   // ... other webpack config
@@ -139,7 +140,7 @@ The plugin will generate:
 
 ## Contributing
 
-We welcome contributions to improve the ExtractComponentPropTypes plugin! Here's how you can help:
+We welcome contributions to improve the ReactPropsType Extractor plugin! Here's how you can help:
 
 ### Development Setup
 
