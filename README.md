@@ -43,11 +43,12 @@ module.exports = {
 
 ## Configuration Options
 
-| Option         | Type      | Default           | Description                                                      |
-| -------------- | --------- | ----------------- | ---------------------------------------------------------------- |
-| `sourceDir`    | `string`  | required          | The source directory containing your TypeScript/React components |
-| `tsConfigPath` | `string`  | `'tsconfig.json'` | Path to your TypeScript configuration file                       |
-| `debug`        | `boolean` | `false`           | Enable debug logging for the plugin                              |
+| Option         | Type      | Default           | Description                                                                                  |
+| -------------- | --------- | ----------------- | -------------------------------------------------------------------------------------------- |
+| `sourceDir`    | `string`  | required          | The source directory containing your TypeScript/React components                             |
+| `tsConfigPath` | `string`  | `'tsconfig.json'` | Path to your TypeScript configuration file                                                   |
+| `debug`        | `boolean` | `false`           | Enable debug logging for the plugin                                                          |
+| `generateJson` | `boolean` | `false`           | will generate JSON file `componentProps.json` at root folder containing extracted prop types |
 
 ## Output Format
 

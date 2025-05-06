@@ -10,7 +10,7 @@ class ExtractComponentTypesPlugin {
       sourceDir: options.sourceDir,
       tsConfigPath: options.tsConfigPath || "tsconfig.json",
       debug: options.debug || false,
-      outputPath: options.outputPath,
+      generateJson: options.generateJson,
     };
 
     this.typeCache = {};
@@ -582,9 +582,9 @@ class ExtractComponentTypesPlugin {
       COMPONENT_PROPS: JSON.stringify(this.typeCache || {}),
     });
 
-    if (this.options.outputPath) {
+    if (this.options.generateJson) {
       fs.writeFileSync(
-        path.join(this.options.outputPath, "componentProps.json"),
+        path.join(process.getcwd(), "componentProps.json"),
         JSON.stringify(this.typeCache, null, 2)
       );
     }
