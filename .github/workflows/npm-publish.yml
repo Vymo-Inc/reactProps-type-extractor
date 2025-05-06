@@ -28,6 +28,13 @@ jobs:
           node-version: 20
           registry-url: https://registry.npmjs.org/
       - run: npm ci
+      - name: Set version from tag
+        run: |
+            TAG=${GITHUB_REF#refs/tags/}           # e.g., release/v0.0.3
+            VERSION=${TAG#release/}                # strips 'release/', result: v0.0.3
+            VERSION_CLEAN=${VERSION#v}             # strips 'v', result: 0.0.3
+            echo "Using version: $VERSION_CLEAN"
+            npm version $VERSION_CLEAN --no-git-tag-version
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
