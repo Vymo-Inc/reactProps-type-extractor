@@ -10,7 +10,7 @@ class ExtractComponentTypesPlugin {
       sourceDir: options.sourceDir,
       tsConfigPath: options.tsConfigPath || "tsconfig.json",
       debug: options.debug || false,
-      envStringified: options.envStringified,
+      outputPath: options.outputPath,
     };
 
     this.typeCache = {};
@@ -562,19 +562,21 @@ class ExtractComponentTypesPlugin {
     const program = ts.createProgram(files, this.getTSConfig());
     let processed = 0;
 
+    const typeCache = {};
+
     files.forEach((filePath) => {
       const sourceFile = program.getSourceFile(filePath);
       if (sourceFile) {
         const result = this.processSourceFile(program, sourceFile);
         if (result) {
-          this.typeCache[result.path] = result;
+          typeCache[result.path] = result;
           this.log(`Processed ${result.path} (${result.props.length} props)`);
           processed++;
         }
       }
     });
 
-    return processed;
+    return { processed, typeCache };
   }
 
   injectTypes(compiler) {
@@ -582,6 +584,12 @@ class ExtractComponentTypesPlugin {
       COMPONENT_PROPS: JSON.stringify(this.typeCache || {}),
     });
 
+    if (this.options.outputPath) {
+      fs.writeFileSync(
+        path.join(this.options.outputPath, "componentProps.json"),
+        JSON.stringify(this.typeCache, null, 2)
+      );
+    }
     definePlugin.apply(compiler);
   }
 
@@ -598,7 +606,8 @@ class ExtractComponentTypesPlugin {
             this.log(`Found ${uiFiles.length} UI components to process`);
 
             if (uiFiles.length > 0) {
-              const processed = this.processTSFiles(uiFiles);
+              const { processed, typeCache } = this.processTSFiles(uiFiles);
+              this.typeCache = { ...this.typeCache, typeCache };
               this.log(`Processed ${processed} components in build mode`);
               this.injectTypes(compiler);
             }

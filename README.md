@@ -27,14 +27,14 @@ npm install --save-dev extract-component-proptypes-webpack-plugin
 In your webpack configuration:
 
 ```javascript
-const ExtractComponentTypesPlugin = require('./config/webpack/plugins/extractComponentPropTypes');
+const ExtractComponentTypesPlugin = require("./config/webpack/plugins/extractComponentPropTypes");
 
 module.exports = {
   // ... other webpack config
   plugins: [
     new ExtractComponentTypesPlugin({
-      sourceDir: 'src',
-      tsConfigPath: 'tsconfig.json',
+      sourceDir: "src",
+      tsConfigPath: "tsconfig.json",
       debug: false,
     }),
   ],
@@ -80,8 +80,8 @@ For a component like:
 
 ```typescript
 interface ButtonProps {
-  variant: 'primary' | 'secondary';
-  size?: 'small' | 'medium' | 'large';
+  variant: "primary" | "secondary";
+  size?: "small" | "medium" | "large";
   onClick: () => void;
   disabled?: boolean;
 }
@@ -170,17 +170,6 @@ We welcome contributions to improve the ExtractComponentPropTypes plugin! Here's
 3. Documentation:
    - Update README.md for any new features or changes
    - Document any breaking changes
-
-### Submitting Pull Requests
-
-1. Commit your changes with clear, descriptive commit messages
-2. Push your changes to your fork
-3. Create a pull request with:
-   - A clear title and description
-   - List of changes made
-   - Any breaking changes
-   - Screenshots or examples (if applicable)
-   - Reference to related issues
 
 ### Bug Reports
 

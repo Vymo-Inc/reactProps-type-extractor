@@ -1,10 +1,16 @@
 {
-  "name": "reactprops-type-extractor",
-  "version": "0.0.1",
+  "name": "@vymo/reactprops-type-extractor",
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "version": "0.0.2",
   "description": "Plugin that extracts TypeScript component prop types at build time. This plugin analyzes your React components and generates a structured representation of their prop types, which can be useful for documentation, runtime type checking, or component validation.",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "jest",
+    "build": "tsc"
   },
   "keywords": [
     "propTypes",
@@ -14,5 +20,25 @@
     "react"
   ],
   "author": "frontend@getvymo.com",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^4.0.0",
+    "webpack": "^5.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@types/jest": "^29.0.0",
+    "@types/react": "^18.0.0",
+    "jest": "^29.0.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "ts-jest": "^29.0.0",
+    "ts-loader": "9.5.1",
+    "ts-node": "^10.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  }
 }
