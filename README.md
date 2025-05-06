@@ -1,7 +1,7 @@
 # ReactPropType Extractor Webpack Plugin
 
 [![npm version](https://badge.fury.io/js/@vymo%2Freactprops-type-extractor.svg)](https://www.npmjs.com/package/@vymo/reactprops-type-extractor)
-[![Build Status](https://github.com/vymo/reactprops-type-extractor/actions/workflows/build.yml/badge.svg)](https://github.com/vymo/reactprops-type-extractor/actions)
+[![License](https://img.shields.io/npm/l/@vymo/reactprops-type-extractor)](https://github.com/vymo/reactprops-type-extractor/blob/master/LICENSE)
 
 A webpack plugin that extracts TypeScript component prop types at build time. This plugin analyzes your React components and generates a structured representation of their prop types, which can be useful for documentation, runtime type checking, or component validation.
 
@@ -27,21 +27,31 @@ npm install --save-dev @vymo/reactprops-type-extractor
 
 ## Usage
 
-In your webpack configuration:
+#### In your webpack configuration:
 
 ```javascript
-const ExtractComponentTypesPlugin = require("@vymo/reactprops-type-extractor");
+const ReactPropsTypeExtractor = require("@vymo/reactprops-type-extractor");
 
 module.exports = {
   // ... other webpack config
   plugins: [
-    new ExtractComponentTypesPlugin({
+    new ReactPropsTypeExtractor({
       sourceDir: "src",
       tsConfigPath: "tsconfig.json",
       debug: false,
     }),
   ],
 };
+```
+
+#### Accessing Props in Code
+
+The extracted prop types are available in your code through the global variable `COMPONENT_PROPS`. This variable contains the structured representation of all component prop types:
+
+```typescript
+// Access props for a specific component
+const buttonProps = COMPONENT_PROPS.Button;
+console.log(buttonProps);
 ```
 
 ## Configuration Options
