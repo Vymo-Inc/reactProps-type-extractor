@@ -562,21 +562,19 @@ class ExtractComponentTypesPlugin {
     const program = ts.createProgram(files, this.getTSConfig());
     let processed = 0;
 
-    const typeCache = {};
-
     files.forEach((filePath) => {
       const sourceFile = program.getSourceFile(filePath);
       if (sourceFile) {
         const result = this.processSourceFile(program, sourceFile);
         if (result) {
-          typeCache[result.path] = result;
+          this.typeCache[result.path] = result;
           this.log(`Processed ${result.path} (${result.props.length} props)`);
           processed++;
         }
       }
     });
 
-    return { processed, typeCache };
+    return processed;
   }
 
   injectTypes(compiler) {
@@ -606,8 +604,7 @@ class ExtractComponentTypesPlugin {
             this.log(`Found ${uiFiles.length} UI components to process`);
 
             if (uiFiles.length > 0) {
-              const { processed, typeCache } = this.processTSFiles(uiFiles);
-              this.typeCache = { ...this.typeCache, typeCache };
+              const processed = this.processTSFiles(uiFiles);
               this.log(`Processed ${processed} components in build mode`);
               this.injectTypes(compiler);
             }
