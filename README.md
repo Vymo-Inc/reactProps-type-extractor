@@ -1,5 +1,7 @@
 # ExtractComponentPropTypes Webpack Plugin
 
+[![npm version](https://badge.fury.io/js/extract-component-proptypes-webpack-plugin.svg)](https://www.npmjs.com/package/@vymo/reactprops-type-extractor)
+
 A webpack plugin that extracts TypeScript component prop types at build time. This plugin analyzes your React components and generates a structured representation of their prop types, which can be useful for documentation, runtime type checking, or component validation.
 
 ## Features
