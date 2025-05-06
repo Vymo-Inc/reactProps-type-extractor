@@ -1,0 +1,18 @@
+{
+  "name": "reactprops-type-extractor",
+  "version": "0.0.1",
+  "description": "Plugin that extracts TypeScript component prop types at build time. This plugin analyzes your React components and generates a structured representation of their prop types, which can be useful for documentation, runtime type checking, or component validation.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "keywords": [
+    "propTypes",
+    "type",
+    "prop",
+    "extract",
+    "react"
+  ],
+  "author": "frontend@getvymo.com",
+  "license": "MIT"
+}
