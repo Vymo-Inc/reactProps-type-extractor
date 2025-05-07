@@ -8,6 +8,11 @@
   "version": "0.0.2",
   "description": "Plugin that extracts TypeScript component prop types at build time. This plugin analyzes your React components and generates a structured representation of their prop types, which can be useful for documentation, runtime type checking, or component validation.",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vymo-Inc/reactProps-type-extractor.git"
+  },
+  "homepage": "https://github.com/Vymo-Inc/reactProps-type-extractor/blob/master/README.md",
   "scripts": {
     "test": "jest",
     "build": "tsc"
