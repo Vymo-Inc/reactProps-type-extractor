@@ -23,6 +23,7 @@ A webpack plugin that extracts TypeScript component prop types at build time. Th
 
 ```bash
 npm install --save-dev @vymo/reactprops-type-extractor
+yarn add -D @vymo/reactprops-type-extractor
 ```
 
 ## Usage
