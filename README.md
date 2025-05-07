@@ -33,7 +33,7 @@ npm install --save-dev @vymo/reactprops-type-extractor
 const ReactPropsTypeExtractor = require("@vymo/reactprops-type-extractor");
 
 module.exports = {
-  // ... webpack config
+  // ... other webpack config
   plugins: [
     new ReactPropsTypeExtractor({
       sourceDir: "src",
